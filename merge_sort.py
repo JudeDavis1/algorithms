@@ -15,7 +15,6 @@ def merge_sort(arr):
     mid = len(arr) // 2
     L = arr[:mid]
     R = arr[mid:]
-    print(L)
     
     # Sort Left and Right
     merge_sort(L)
@@ -27,12 +26,13 @@ def merge_sort(arr):
     while i < len(L) and j < len(R):
         if L[i] < R[j]:
             arr[k] = L[i]
-            i += 1  # Move onto the next item
+            i += 1  # Move onto the next item if it is less that the right side.
         else:
             arr[k] = R[j]
             j += 1  # Same here
         k += 1
     
+    # Pick up remaining elements in L or R
     while i < len(L):
         arr[k] = L[i]
         i += 1
@@ -42,6 +42,8 @@ def merge_sort(arr):
         arr[k] = R[j]
         j += 1
         k += 1
+    
+    print(arr)
 
 
 if __name__ == '__main__':
